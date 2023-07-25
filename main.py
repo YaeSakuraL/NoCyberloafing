@@ -74,7 +74,7 @@ def check_foreground():
                 break
             else:
                 cyberloafing_flag = True
-        if cyberloafing_flag:
+        if not cyberloafing_flag:
             cyberloafing_count = 0
             working_count += 1
             print('Working hard~♪',end='\r')
@@ -117,7 +117,11 @@ if __name__ == '__main__':
     init()
 
     os.system('cls')
-    print('Start focusing~♪')
+    print('Start focusing on following windows~♪')
+    print('\033[35m')
+    for window in focus_window:
+        print(window.title)
+    print('\033[0m')
     print('Press \'Ecs\' to exit~♪')
 
     stop_threads = False
