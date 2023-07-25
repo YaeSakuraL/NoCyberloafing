@@ -32,18 +32,26 @@ def check_foreground():
             print('Working hard~♪',end='\r')
             sys.stdout.flush()
             if working_count % max_working_time == 0:
-                voice = random.choice(working_voice).replace('\\','/')
-                pygame.mixer.music.load(voice)
-                pygame.mixer.music.play()
+                try:
+                    voice = random.choice(working_voice).replace('\\','/')
+                    pygame.mixer.music.load(voice)
+                    pygame.mixer.music.play()
+                except:
+                    #No voice
+                    pass
         else:
             working_count = 0
             cyberloafing_count += 1
             print('Cyberloafing~♪',end='\r')
             sys.stdout.flush()
             if cyberloafing_count % max_cyberloafing_time == 0:
-                voice = random.choice(cyberloafing_voice).replace('\\','/')
-                pygame.mixer.music.load(voice)
-                pygame.mixer.music.play()
+                try:
+                    voice = random.choice(cyberloafing_voice).replace('\\','/')
+                    pygame.mixer.music.load(voice)
+                    pygame.mixer.music.play()
+                except:
+                    #No voice
+                    pass
         global stop_threads
         if stop_threads:
             break
